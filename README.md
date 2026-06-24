@@ -1,50 +1,64 @@
 # Batch Fund Collection System
 
-A web application for managing and collecting batch funds efficiently.
+A full-stack web application to manage batch fund collection, contributions, and reporting.
+
+## Tech Stack
+
+- **Frontend**: React (Vite) + Firebase Auth
+- **Backend**: Node.js / Express
+- **Database**: Firebase Firestore
+- **CI/CD**: GitHub Actions
+- **Containerization**: Docker / Docker Compose
 
 ## Project Structure
 
 ```
 batch-fund-collection-system/
-├── .github/workflows/    # CI/CD pipelines
-├── docs/                 # Documentation, sprint plans, meeting notes, diagrams
-├── frontend/             # React + Firebase frontend
-│   ├── public/
-│   └── src/
-│       ├── assets/
-│       ├── components/
-│       ├── pages/        # auth, dashboard, admin, fund
-│       ├── firebase/
-│       ├── services/
-│       ├── routes/
-│       ├── context/
-│       └── utils/
-├── tests/
-├── screenshots/
-├── docker-compose.yml
-└── README.md
+├── .github/workflows/     # CI/CD pipelines
+├── docs/                  # Documentation, diagrams, meeting notes
+├── frontend/              # React frontend (Vite)
+├── backend/               # Node.js/Express REST API
+├── tests/                 # Unit and integration tests
+└── docker-compose.yml     # Multi-service Docker config
 ```
 
 ## Getting Started
 
 ### Prerequisites
 - Node.js 18+
-- Docker (optional)
-- Firebase project
+- Docker & Docker Compose (optional)
 
-### Installation
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-### Docker
-
+### Run with Docker
 ```bash
 docker-compose up --build
 ```
 
+### Run Locally
+
+**Backend:**
+```bash
+cd backend
+cp .env.example .env
+npm install
+npm run dev
+```
+
+**Frontend:**
+```bash
+cd frontend
+cp .env.example .env
+npm install
+npm run dev
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
 ## License
-MIT
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

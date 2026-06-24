@@ -1,4 +1,3 @@
-# Use Node.js LTS
 FROM node:18-alpine
 
 WORKDIR /app
@@ -8,8 +7,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+EXPOSE 5173
 
-EXPOSE 4173
-
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "dev", "--", "--host"]
