@@ -3,11 +3,13 @@ import backgroundSvg from "../../assets/background.svg";
 import image1 from "../../assets/image1.png";
 import LoginPage from "../auth/LoginPage";
 import RegisterPage from "../auth/RegisterPage";
+import ForgotPasswordPage from "../auth/ForgotPasswordPage";
 import "./HomePage.css";
 
 const HomePage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
 
   return (
     <div
@@ -36,7 +38,14 @@ const HomePage = () => {
       {showLogin && (
         <LoginPage
           onClose={() => setShowLogin(false)}
-          onSwitchToSignup={() => { setShowLogin(false); setShowRegister(true); }}
+          onSwitchToSignup={() => {
+            setShowLogin(false);
+            setShowRegister(true);
+          }}
+          onSwitchToForgotPassword={() => {
+            setShowLogin(false);
+            setShowForgotPassword(true);
+          }}
         />
       )}
 
@@ -44,7 +53,21 @@ const HomePage = () => {
       {showRegister && (
         <RegisterPage
           onClose={() => setShowRegister(false)}
-          onSwitchToLogin={() => { setShowRegister(false); setShowLogin(true); }}
+          onSwitchToLogin={() => {
+            setShowRegister(false);
+            setShowLogin(true);
+          }}
+        />
+      )}
+
+      {/* Forgot Password Modal */}
+      {showForgotPassword && (
+        <ForgotPasswordPage
+          onClose={() => setShowForgotPassword(false)}
+          onSwitchToLogin={() => {
+            setShowForgotPassword(false);
+            setShowLogin(true);
+          }}
         />
       )}
     </div>

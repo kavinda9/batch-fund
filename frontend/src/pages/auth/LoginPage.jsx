@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 
-const LoginPage = ({ onClose, onSwitchToSignup }) => {
+const LoginPage = ({ onClose, onSwitchToSignup, onSwitchToForgotPassword }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +40,9 @@ const LoginPage = ({ onClose, onSwitchToSignup }) => {
           </div>
 
           <div className="forgot-password">
-            <a href="#">Forgot password?</a>
+            <span className="forgot-password-link" onClick={onSwitchToForgotPassword}>
+              Forgot password?
+            </span>
           </div>
 
           <button type="submit" className="login-btn">
