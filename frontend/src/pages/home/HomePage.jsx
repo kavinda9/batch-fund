@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import backgroundSvg from "../../assets/background.svg";
 import image1 from "../../assets/image1.png";
 import LoginPage from "../auth/LoginPage";
+import RegisterPage from "../auth/RegisterPage";
 import "./HomePage.css";
 
 const HomePage = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   return (
     <div
@@ -32,7 +34,18 @@ const HomePage = () => {
 
       {/* Login Modal */}
       {showLogin && (
-        <LoginPage onClose={() => setShowLogin(false)} />
+        <LoginPage
+          onClose={() => setShowLogin(false)}
+          onSwitchToSignup={() => { setShowLogin(false); setShowRegister(true); }}
+        />
+      )}
+
+      {/* Register Modal */}
+      {showRegister && (
+        <RegisterPage
+          onClose={() => setShowRegister(false)}
+          onSwitchToLogin={() => { setShowRegister(false); setShowLogin(true); }}
+        />
       )}
     </div>
   );
